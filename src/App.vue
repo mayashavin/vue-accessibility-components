@@ -1,47 +1,49 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Tooltip from './components/Tooltip.vue';
+
+const tooltipsIds = {
+  top: 'tooltip__text_top',
+  bottom: 'tooltip__text_bottom',
+  left: 'tooltip__text_left',
+  right: 'tooltip__text_right'
+}
 </script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div>
+    <h1>Tooltip demos</h1>
+    <div class="tooltips-demo">
+      <Tooltip text="I'm the top tooltip" position="top" :tooltip-id="tooltipsIds.top">
+        <button :aria-describedby="tooltipsIds.top">Top</button>
+      </Tooltip>
+      <Tooltip text="I'm the right tooltip" position="right" :tooltip-id="tooltipsIds.right">
+        <button :aria-describedby="tooltipsIds.right">Right</button>
+      </Tooltip>
+      <Tooltip text="I'm the bottom tooltip" position="bottom" :tooltip-id="tooltipsIds.bottom">
+        <button :aria-describedby="tooltipsIds.bottom">Bottom</button>
+      </Tooltip>
+      <Tooltip text="I'm the left tooltip" position="left" :tooltip-id="tooltipsIds.left">
+        <button :aria-describedby="tooltipsIds.left">Left</button>
+      </Tooltip>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
-
 <style scoped>
-header {
-  line-height: 1.5;
+.tooltips-demo {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.tooltips-demo button {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  width: 80px;
+  background: #e03f73;
+  color: white;
 }
 </style>
