@@ -25,6 +25,13 @@ const tooltipsIds = {
         <button :aria-describedby="tooltipsIds.left">Left</button>
       </Tooltip>
     </div>
+    <div class="tooltips-demo">
+      <button v-tooltip.top="'I am the top tooltip'">Top</button>
+      <button v-tooltip="{ text: 'Im the bottom tooltip', position: 'bottom', tooltipId: tooltipsIds.bottom }">bottom</button>
+      <button v-tooltip="{ text: 'Im the right tooltip', position: 'right', tooltipId: tooltipsIds.right }">Right</button>
+      <button v-tooltip="{ text: 'Im the left tooltip', position: 'left', tooltipId: tooltipsIds.left }">Left</button>
+  </div>
+    
   </div>
 </template>
 <style scoped>
